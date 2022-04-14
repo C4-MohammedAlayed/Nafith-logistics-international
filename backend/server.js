@@ -7,13 +7,13 @@ const app = express();
 const PORT = 5000;
 
 // Import Routers
-
+const rolesRouter =require("./routes/roles")
 
 app.use(cors());
 app.use(express.json());
 
 // Routes Middleware
-
+app.use("/roles",rolesRouter)
 
 
 
