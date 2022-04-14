@@ -27,6 +27,27 @@ const createUsers = async (req, res) => {
   });
 };
 
+const getAllUsers=(req,res)=>{
+    const query =`SELECT * FROM users WHERE is_deleted = 0`
+
+    connecting.query(query,(err,results)=>{
+        if (err) {
+            return res.status(500).json({
+                success:false,
+                massage:"server error",
+                err:err
+            })
+        }
+
+        res.status(200).json({
+            success:true,
+            massage:"All users",
+            users:results
+        })
+    })
+}
+
 module.exports = {
   createUsers,
+  getAllUsers
 };
