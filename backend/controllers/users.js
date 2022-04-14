@@ -47,7 +47,32 @@ const getAllUsers=(req,res)=>{
     })
 }
 
+const updateUserById =(req,res)=>{
+    const id =req.params.id;
+    const body = req.body;
+    const query =`UPDATE users SET ? WHERE id=? AND is_deleted=0 `
+    data =[body,id];
+
+    connecting.query(query,data,(err,result)=>{
+        if (err) {
+            res.status(404).json({
+                success:false,
+                massage:"User not found",
+                err:err
+            })
+        }
+        res.status(202).json({
+            success:true,
+            massage:"Updated successfully",
+            result:result,
+
+        })
+    })
+
+}
+
 module.exports = {
   createUsers,
-  getAllUsers
+  getAllUsers,
+  updateUserById,
 };
