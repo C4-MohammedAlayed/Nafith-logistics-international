@@ -48,6 +48,26 @@ const getAllUsers = (req, res) => {
   });
 };
 
+const getUserByName = (req, res) => {
+
+    
+  const query = `SELECT * FROM users WHERE userName= ? AND is_deleted = 0 `;
+  userName =req.query.userName
+  connecting.query(query,userName, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "server error",
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      user: result,
+    });
+  });
+};
+
 const updateUserById = (req, res) => {
   const id = req.params.id;
   const body = req.body;
@@ -95,4 +115,5 @@ module.exports = {
   getAllUsers,
   updateUserById,
   deleteUserById,
+  getUserByName,
 };
