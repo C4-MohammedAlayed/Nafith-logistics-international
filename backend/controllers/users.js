@@ -1,14 +1,13 @@
 const connecting = require("../db/db");
-const bcrypt = require("bcryptjs");
-const express = require("express");
-const salt = 8;
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 // createUsers function
 const createUsers = async (req, res) => {
-  const { userName, email, passWord, role_id } = req.body;
+  const { userName, email, password, role_id } = req.body;
   let encrypted;
-  if (passWord) {
-    encrypted = await bcrypt.hash(passWord, salt);
+  if (password) {
+    encrypted = await bcrypt.hash(password, saltRounds);
   }
   const query = `INSERT INTO users (userName,email,password,role_id) VALUES(?,?,?,?)`;
   const data = [userName, email, encrypted, role_id];
