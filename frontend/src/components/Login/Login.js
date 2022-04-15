@@ -15,10 +15,16 @@ const [password, setPassword] = useState("");
       .then((response)=>{
         localStorage.setItem("myIsLoggedIn", true); //
         localStorage.setItem("MyuserRole", response.data.role)
-        navigate("/dashboard")
+       
+        if (response.data.role === "Admin") {
+          navigate("/dashboard")
+        }else{
+          setmessage("Only admin can login")
+        }
+       
       })
       .catch((err)=>{
-        console.log("err");
+        throw err
       })
   }
 
@@ -28,14 +34,7 @@ const [password, setPassword] = useState("");
         <div className="login-register">
           <div className="inner">
             <span id="login">Login</span>
-            <span
-              id="register"
-              onClick={() => {
-                navigate("/register");
-              }}
-            >
-              Register
-            </span>
+            
           </div>
         </div>
         <div className="login-box-out">
