@@ -20,8 +20,9 @@
 
 ## 🧐 About <a name = "about"></a>
 
- CRUD operations , so you can :
-create, read, update and delete.
+ CRUD operations .
+ Only admin who can :
+Create, Read, Update and Delete.
                       
 ## 🏁 Getting Started <a name = "getting_started"></a>
 You need to make sure that there is a **package.json** file
