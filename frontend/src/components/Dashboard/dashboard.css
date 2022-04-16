@@ -74,6 +74,9 @@ table {
       justify-content: space-around;
   }
 
+  .searchInput{
+      width: 25%;
+  }
   .searchInput input{
     border-color: currentcolor currentcolor #8e8e8e;
     border-image: none;
@@ -84,7 +87,7 @@ table {
     height: 31px;
     line-height: 40px;
     padding: 0 15px;
-    width: 85%;
+    width: 65%;
     background: transparent;
     margin-right: 5px;
   }

@@ -13,9 +13,6 @@ const Login = () => {
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((response) => {
-        localStorage.setItem("myIsLoggedIn", true); //
-        localStorage.setItem("MyuserRole", response.data.role);
-
         if (response.data.role === "Admin") {
           navigate("/dashboard");
         } else {

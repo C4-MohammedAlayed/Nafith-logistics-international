@@ -118,6 +118,7 @@ const Dashboard = () => {
               />
               {status && (
                 <span
+                style={{ cursor: "pointer",marginLeft:"6px",color:'green' }}
                   onClick={() => {
                     getAllUsers();
                   }}
@@ -190,13 +191,14 @@ const Dashboard = () => {
                           )}
 
                           <BsPencilSquare
-                            id="update"
+                          style={{ cursor: "pointer" }}
+                           
                             onClick={() => handleUpdateClick(user)}
                           />
                           {update && userId === user.id && <></>}
 
                           <RiDeleteBinLine
-                            id="delete"
+                            style={{ cursor: "pointer",color:"red" }}
                             onClick={() => deleteUser(user.id)}
                           />
                         </td>
