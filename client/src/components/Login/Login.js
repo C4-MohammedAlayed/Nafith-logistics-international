@@ -10,30 +10,24 @@ const Login = () => {
   const [message, setmessage] = useState("");
 
   const loginUser = async () => {
+    console.log("hi out");
     const body = {
       email: email,
       password: password,
     };
-
-    try {
-      await axios.post("/login", body );
-
-      navigate("/dashboard");
-    } catch (error) {
-      throw error;
-    }
-  //  await axios
-  //     .post("/login", body )
-  //     .then((response) => {
-  //       if (response.data.role === "Admin") {
-  //         navigate("/dashboard");
-  //       } else {
-  //         setmessage("Only admin can login");
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       throw err
-  //     });
+   await axios
+      .post("/login", body )
+      .then((response) => {
+        console.log("hi");
+        if (response.data.role === "Admin") {
+          navigate("/dashboard");
+        } else {
+          setmessage("Only admin can login");
+        }
+      })
+      .catch((err) => {
+        throw err
+      });
   };
 
   return (
