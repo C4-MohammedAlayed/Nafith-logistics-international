@@ -20,7 +20,7 @@ const Login = () => {
         }
       })
       .catch((err) => {
-        throw err;
+        console.log(err);
       });
   };
 
