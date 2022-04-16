@@ -12,7 +12,7 @@ const Register = ({ setUsers, setTotal }) => {
   const getAllUsers = async () => {
     console.log("hiiii");
     await axios
-      .get(`http://localhost:5000/users`)
+      .get(`/users`)
       .then((res) => {
         setUsers(res.data.users);
         setTotal(res.data.users);
@@ -24,7 +24,7 @@ const Register = ({ setUsers, setTotal }) => {
 
   const createUser = async () => {
     await axios
-      .post("http://localhost:5000/users", {
+      .post("/users", {
         userName,
         email,
         password,

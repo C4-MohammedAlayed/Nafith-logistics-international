@@ -11,7 +11,7 @@ const Login = () => {
 
   const loginUser = () => {
     axios
-      .post("http://localhost:5000/login", { email, password })
+      .post("/login", { email, password })
       .then((response) => {
         if (response.data.role === "Admin") {
           navigate("/dashboard");

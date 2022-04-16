@@ -22,9 +22,9 @@ const Dashboard = () => {
   const [elementId, setElementId] = useState([]);
   const [total, setTotal] = useState("");
   const getAllUsers = async () => {
-    console.log("hiiii");
+    
     await axios
-      .get(`http://localhost:5000/users`)
+      .get(`/users`)
       .then((res) => {
         setUsers(res.data.users);
         setTotal(res.data.users);
@@ -38,7 +38,7 @@ const Dashboard = () => {
 
   const getByName = () => {
     axios
-      .get(`http://localhost:5000/users/search?userName=${byName}`)
+      .get(`/users/search?userName=${byName}`)
       .then((res) => {
         setUsers(res.data.user);
       })
@@ -49,7 +49,7 @@ const Dashboard = () => {
 
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/users/${id}`);
+      await axios.delete(`/users/${id}`);
 
       getAllUsers();
       setStatus(false);
@@ -65,7 +65,7 @@ const Dashboard = () => {
     };
 
     try {
-      await axios.put(`http://localhost:5000/users/${id}`, body);
+      await axios.put(`/users/${id}`, body);
 
       getAllUsers();
     } catch (error) {
