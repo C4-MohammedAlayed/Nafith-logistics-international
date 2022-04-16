@@ -58,7 +58,7 @@ const Login = () => {
             />
             {message ? <p className="Error">{message}</p> : <></>}{" "}
             <div className="button-signIn">
-              <button onClick={loginUser} id="signIn">
+              <button onClick={()=>loginUser()} id="signIn">
                 Login
               </button>
             </div>
