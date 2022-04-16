@@ -1,7 +1,5 @@
-Drop DATABASE Nafith;
-CREATE DATABASE Nafith;
 
-Use Nafith;
+Use sql11486078;
 
 CREATE TABLE roles(
     role_id INT AUTO_INCREMENT NOT NULL,
