@@ -10,8 +10,12 @@ const Login = () => {
   const [message, setmessage] = useState("");
 
   const loginUser = async () => {
+    const body = {
+      email: email,
+      password: password,
+    };
    await axios
-      .post("/login", { email, password })
+      .post("/login", body )
       .then((response) => {
         if (response.data.role === "Admin") {
           navigate("/dashboard");
@@ -20,7 +24,7 @@ const Login = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        throw err
       });
   };
 
