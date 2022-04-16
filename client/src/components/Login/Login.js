@@ -14,18 +14,26 @@ const Login = () => {
       email: email,
       password: password,
     };
-   await axios
-      .post("/login", body )
-      .then((response) => {
-        if (response.data.role === "Admin") {
-          navigate("/dashboard");
-        } else {
-          setmessage("Only admin can login");
-        }
-      })
-      .catch((err) => {
-        throw err
-      });
+
+    try {
+      await axios.post("/login", body );
+
+      navigate("/dashboard");
+    } catch (error) {
+      throw error;
+    }
+  //  await axios
+  //     .post("/login", body )
+  //     .then((response) => {
+  //       if (response.data.role === "Admin") {
+  //         navigate("/dashboard");
+  //       } else {
+  //         setmessage("Only admin can login");
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       throw err
+  //     });
   };
 
   return (
