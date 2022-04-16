@@ -9,8 +9,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [message, setmessage] = useState("");
 
-  const loginUser = () => {
-    axios
+  const loginUser = async () => {
+   await axios
       .post("/login", { email, password })
       .then((response) => {
         if (response.data.role === "Admin") {

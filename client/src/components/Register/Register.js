@@ -10,7 +10,7 @@ const Register = ({ setUsers, setTotal }) => {
   const role_id = "2";
 
   const getAllUsers = async () => {
-    console.log("hiiii");
+    
     await axios
       .get(`/users`)
       .then((res) => {
