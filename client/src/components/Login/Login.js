@@ -10,15 +10,13 @@ const Login = () => {
   const [message, setmessage] = useState("");
 
   const loginUser = async () => {
-    console.log("hi out");
     const body = {
       email: email,
       password: password,
     };
-   await axios
-      .post("/login", body )
+    await axios
+      .post("/login", body)
       .then((response) => {
-        console.log("hi");
         if (response.data.role === "Admin") {
           navigate("/dashboard");
         } else {
@@ -26,7 +24,7 @@ const Login = () => {
         }
       })
       .catch((err) => {
-        throw err
+        throw err;
       });
   };
 
@@ -58,7 +56,7 @@ const Login = () => {
             />
             {message ? <p className="Error">{message}</p> : <></>}{" "}
             <div className="button-signIn">
-              <button onClick={()=>loginUser()} id="signIn">
+              <button onClick={() => loginUser()} id="signIn">
                 Login
               </button>
             </div>
